@@ -1,0 +1,17 @@
+    :root { color-scheme: light; }
+    html.dark { color-scheme: dark; }
+    body { font-family: "Inter", sans-serif; }
+    h1, h2, h3, .font-heading { font-family: "Plus Jakarta Sans", sans-serif; }
+    :focus-visible { outline: 3px solid #F59E0B; outline-offset: 3px; }
+    .skip-link { position:absolute; left:-9999px; top:1rem; z-index:100; background:#fff; padding:.75rem 1rem; color:#075985; border-radius:.5rem; }
+    .skip-link:focus { left:1rem; }
+    .service-card[aria-pressed="true"] { border-color:#0284C7; background:#E0F2FE; box-shadow:0 0 0 2px #0284C7 inset; }
+    .dark .service-card[aria-pressed="true"] { background:#082F49; }
+    .star-button { color:#9CA3AF; transition:transform .12s ease, color .12s ease; }
+    .star-button:hover { transform:scale(1.12); }
+    .star-button.active { color:#F59E0B; }
+    .toast-enter { animation: toastIn .25s ease-out; }
+    @keyframes toastIn { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; }
+    }
