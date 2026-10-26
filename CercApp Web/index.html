@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0284c7">
+  <meta name="description" content="CercApp conecta a Neiva con profesionales locales verificados para servicios del hogar.">
+  <title>CercApp | Los servicios que necesitas, más cerca</title>
+
+  <!-- Fuentes: máximo dos familias externas -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS 4 Play CDN oficial -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <style type="text/tailwindcss">
+    @theme {
+      --color-cerc-blue: #0284C7;
+      --color-cerc-blue-dark: #075985;
+      --color-cerc-cream: #FFFCF7;
+      --color-cerc-ink: #172B3A;
+      --color-cerc-orange: #F59E0B;
+      --color-cerc-green: #15803D;
+      --color-cerc-red: #B91C1C;
+      --font-sans: "Inter", sans-serif;
+      --font-heading: "Plus Jakarta Sans", sans-serif;
+    }
+    @custom-variant dark (&:where(.dark, .dark *));
+  </style>
+  <!-- Tema personalizado de CercApp -->
+  <link rel="stylesheet" href="CSS/styles.css">
+
+</head>
+<body class="bg-cerc-cream text-cerc-ink antialiased dark:bg-slate-950 dark:text-slate-100">
+  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
+
+  <!-- Navegación fija y menú móvil -->
+  <header class="fixed inset-x-0 top-0 z-40 border-b border-slate-200/80 bg-white/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-950/95">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Navegación principal">
+      <a href="#inicio" class="flex items-center gap-2.5 rounded-xl" aria-label="CercApp, ir al inicio">
+
+        <span class="grid h-10 w-10 place-items-center rounded-2xl bg-cerc-blue text-white shadow-sm" aria-hidden="true">
+          <img src="img/Logo Blanco.png" alt="Logo de CercApp" class="h-10 w-10 object-contain">
+        </span>
+
+        <span>
+          <span class="block font-heading text-xl font-extrabold tracking-tight text-slate-900 dark:text-white">Cerc<span class="text-cerc-blue">App</span></span>
+          <span class="hidden text-[10px] font-semibold tracking-wide text-slate-500 sm:block">LOS SERVICIOS QUE NECESITAS, MÁS CERCA</span>
+        </span>
+      </a>
+
+      <div id="desktopNav" class="hidden items-center gap-7 md:flex">
+        <a href="#inicio" class="nav-link text-sm font-semibold text-cerc-blue" aria-current="page">Inicio</a>
+        <a href="#explorar" class="nav-link text-sm font-medium text-slate-600 hover:text-cerc-blue dark:text-slate-300">Explorar</a>
+        <a href="#solicitud" class="nav-link text-sm font-medium text-slate-600 hover:text-cerc-blue dark:text-slate-300">Mis solicitudes</a>
+        <a href="#perfil" class="nav-link text-sm font-medium text-slate-600 hover:text-cerc-blue dark:text-slate-300">Mi perfil</a>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button id="themeToggle" type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800" aria-label="Activar modo oscuro" title="Cambiar tema">
+          <svg id="themeIcon" viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20.5 15.5A8.5 8.5 0 0 1 8.5 3.5 8.5 8.5 0 1 0 20.5 15.5Z"/></svg>
+        </button>
+        <a href="#solicitud" class="hidden rounded-xl bg-cerc-blue px-4 py-2.5 text-sm font-bold text-white shadow-sm transition hover:bg-cerc-blue-dark sm:inline-flex">Publicar solicitud</a>
+        <button id="menuToggle" type="button" class="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-100 md:hidden dark:border-slate-700 dark:text-white dark:hover:bg-slate-800" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">
+          <svg id="menuIcon" viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </nav>
+    <div id="mobileNav" class="hidden border-t border-slate-200 bg-white px-4 pb-4 pt-2 md:hidden dark:border-slate-800 dark:bg-slate-950">
+      <div class="mx-auto flex max-w-7xl flex-col gap-1">
+        <a href="#inicio" class="rounded-lg px-3 py-3 text-sm font-semibold hover:bg-sky-50 dark:hover:bg-slate-800">Inicio</a>
+        <a href="#explorar" class="rounded-lg px-3 py-3 text-sm font-semibold hover:bg-sky-50 dark:hover:bg-slate-800">Explorar profesionales</a>
+        <a href="#solicitud" class="rounded-lg px-3 py-3 text-sm font-semibold hover:bg-sky-50 dark:hover:bg-slate-800">Mis solicitudes / Solicitar servicio</a>
+        <a href="#perfil" class="rounded-lg px-3 py-3 text-sm font-semibold hover:bg-sky-50 dark:hover:bg-slate-800">Mi perfil</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido" class="pt-20">
+    <!-- Hero: bienvenida, búsqueda y accesos rápidos -->
+    <section id="inicio" class="relative isolate overflow-hidden">
+      <div class="absolute inset-0 -z-10 bg-gradient-to-br from-sky-100 via-cerc-cream to-amber-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-900"></div>
+      <div class="absolute -right-24 -top-24 -z-10 h-72 w-72 rounded-full bg-sky-200/60 blur-3xl dark:bg-sky-900/30"></div>
+      <div class="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 sm:py-16 lg:grid-cols-[1.08fr_.92fr] lg:px-8 lg:py-20">
+        <div>
+          <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-sky-200 bg-white/80 px-3 py-1.5 text-xs font-bold text-cerc-blue-dark shadow-sm dark:border-sky-900 dark:bg-slate-900 dark:text-sky-300">
+            <span class="h-2 w-2 rounded-full bg-green-500"></span> Profesionales cerca de ti · Neiva, Huila
+          </div>
+          <p class="mb-2 text-sm font-semibold text-slate-600 dark:text-slate-300">¡Hola, Sebastián! 👋</p>
+          <h1 class="max-w-2xl text-4xl font-extrabold leading-tight tracking-tight text-slate-950 sm:text-5xl lg:text-6xl dark:text-white">Los servicios que necesitas, <span class="text-cerc-blue">más cerca.</span></h1>
+          <p class="mt-5 max-w-xl text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-300">Encuentra profesionales locales verificados para resolver lo de tu hogar, sin complicarte. Tú eliges; CercApp te conecta.</p>
+
+          <form id="searchForm" class="mt-7 flex flex-col gap-2 rounded-2xl border border-slate-200 bg-white p-2 shadow-lg shadow-sky-900/5 sm:flex-row dark:border-slate-700 dark:bg-slate-900" role="search">
+            <label for="quickSearch" class="sr-only">Buscar por especialidad o profesional</label>
+            <div class="flex min-w-0 flex-1 items-center gap-3 px-3">
+              <svg viewBox="0 0 24 24" class="h-5 w-5 shrink-0 text-slate-400" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+              <input id="quickSearch" type="search" placeholder="¿Qué servicio necesitas?" class="min-w-0 flex-1 border-0 bg-transparent py-3 text-sm text-slate-900 outline-none placeholder:text-slate-400 dark:text-white" autocomplete="off">
+            </div>
+            <button type="submit" class="rounded-xl bg-cerc-blue px-6 py-3 text-sm font-bold text-white transition hover:bg-cerc-blue-dark">Buscar profesionales</button>
+          </form>
+
+          <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-slate-600 dark:text-slate-300">
+            <span class="inline-flex items-center gap-1.5"><span class="text-green-600" aria-hidden="true">✓</span> Perfiles verificados</span>
+            <span class="inline-flex items-center gap-1.5"><span class="text-green-600" aria-hidden="true">✓</span> Precios transparentes</span>
+            <span class="inline-flex items-center gap-1.5"><span class="text-green-600" aria-hidden="true">✓</span> Hecho para Neiva</span>
+          </div>
+        </div>
+
+        <div class="relative mx-auto w-full max-w-lg">
+          <div class="absolute -left-4 top-12 hidden rounded-2xl border border-slate-100 bg-white p-3 shadow-xl sm:block dark:border-slate-700 dark:bg-slate-900">
+            <div class="flex items-center gap-2"><span class="grid h-9 w-9 place-items-center rounded-xl bg-green-100 text-green-700" aria-hidden="true">✓</span><div><p class="text-xs font-bold">Profesional verificado</p><p class="text-[11px] text-slate-500">Identidad confirmada</p></div></div>
+          </div>
+          <div class="overflow-hidden rounded-[2rem] border-8 border-white bg-sky-100 shadow-2xl shadow-sky-950/10 dark:border-slate-800 dark:bg-slate-900">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=1000&q=85" alt="Técnico electricista revisando una instalación en el hogar" class="h-64 w-full object-cover sm:h-80 lg:h-[26rem]" fetchpriority="high">
+            <div class="bg-white p-5 sm:p-6 dark:bg-slate-900">
+              <div class="flex items-start justify-between gap-3">
+                <div><p class="text-xs font-semibold uppercase tracking-wider text-cerc-blue">Tu comunidad local</p><h2 class="mt-1 font-heading text-xl font-bold">Soluciones para tu hogar</h2><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Personas confiables, a pocos minutos.</p></div>
+                <span class="rounded-xl bg-amber-100 px-3 py-2 text-sm font-extrabold text-amber-800">★ 4.9</span>
+              </div>
+            </div>
+          </div>
+          <div class="absolute -bottom-5 right-3 rounded-2xl bg-cerc-orange px-4 py-3 text-slate-950 shadow-xl sm:right-0">
+            <p class="text-xs font-semibold">Servicios desde</p><p class="text-xl font-extrabold">$35.000 <span class="text-xs font-bold">COP</span></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tarjetas de servicios populares -->
+      <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8 lg:pb-16">
+        <div class="mb-4 flex items-end justify-between gap-4"><div><p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">Encuentra lo que buscas</p><h2 class="mt-1 font-heading text-2xl font-extrabold">Servicios populares</h2></div><a href="#explorar" class="hidden text-sm font-bold text-cerc-blue hover:underline sm:inline">Ver todos →</a></div>
+        <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+          <button class="service-card rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900" data-service="Plomería" aria-pressed="false"><span class="grid h-11 w-11 place-items-center rounded-xl bg-sky-100 text-2xl" aria-hidden="true">🔧</span><span class="mt-3 block font-bold">Plomería</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">Fugas y tuberías</span></button>
+          <button class="service-card rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900" data-service="Electricidad" aria-pressed="false"><span class="grid h-11 w-11 place-items-center rounded-xl bg-amber-100 text-2xl" aria-hidden="true">💡</span><span class="mt-3 block font-bold">Electricidad</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">Instalaciones y daños</span></button>
+          <button class="service-card rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900" data-service="Limpieza" aria-pressed="false"><span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-100 text-2xl" aria-hidden="true">🧹</span><span class="mt-3 block font-bold">Limpieza</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">Hogar y oficinas</span></button>
+          <button class="service-card rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900" data-service="Pintura" aria-pressed="false"><span class="grid h-11 w-11 place-items-center rounded-xl bg-rose-100 text-2xl" aria-hidden="true">🖌️</span><span class="mt-3 block font-bold">Pintura</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">Renueva tus espacios</span></button>
+          <button class="service-card rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900" data-service="Jardinería" aria-pressed="false"><span class="grid h-11 w-11 place-items-center rounded-xl bg-lime-100 text-2xl" aria-hidden="true">🌿</span><span class="mt-3 block font-bold">Jardinería</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">Cuida tus plantas</span></button>
+          <button class="service-card rounded-2xl border border-slate-200 bg-white p-4 text-left transition hover:-translate-y-1 hover:border-sky-300 hover:shadow-md dark:border-slate-800 dark:bg-slate-900" data-service="Cerrajería" aria-pressed="false"><span class="grid h-11 w-11 place-items-center rounded-xl bg-violet-100 text-2xl" aria-hidden="true">🔑</span><span class="mt-3 block font-bold">Cerrajería</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">Puertas y cerraduras</span></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Exploración de profesionales -->
+    <section id="explorar" class="py-14 sm:py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+          <div><p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">Talento de tu ciudad</p><h2 class="mt-2 font-heading text-3xl font-extrabold tracking-tight sm:text-4xl">Profesionales cerca de ti</h2><p class="mt-3 max-w-xl text-sm leading-6 text-slate-600 dark:text-slate-300">Perfiles de ejemplo para mostrar cómo se vería la búsqueda. Verifica los datos reales antes de publicar la plataforma.</p></div>
+          <div class="flex flex-wrap gap-2">
+            <label for="specialtyFilter" class="sr-only">Filtrar por especialidad</label>
+            <select id="specialtyFilter" class="rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium dark:border-slate-700 dark:bg-slate-900"><option value="">Todas las especialidades</option><option>Plomería</option><option>Electricidad</option><option>Limpieza</option><option>Pintura</option><option>Jardinería</option><option>Cerrajería</option></select>
+            <label for="neighborhoodFilter" class="sr-only">Filtrar por barrio</label>
+            <select id="neighborhoodFilter" class="rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm font-medium dark:border-slate-700 dark:bg-slate-900"><option value="">Todos los barrios</option><option>Quirinal</option><option>Ipanema</option><option>Cándido</option><option>Las Granjas</option><option>Álamos Norte</option></select>
+          </div>
+        </div>
+
+        <div id="activeArea" class="mt-6 flex items-center gap-3 rounded-2xl border border-sky-100 bg-sky-50 p-4 dark:border-sky-900 dark:bg-sky-950/50">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-cerc-blue dark:bg-slate-900" aria-hidden="true">📍</span>
+          <div class="min-w-0 flex-1"><p class="text-sm font-bold">Zona seleccionada: <span id="activeAreaName">Toda Neiva</span></p><p id="activeAreaDescription" class="mt-0.5 text-xs text-slate-600 dark:text-slate-300">Explora perfiles de muestra en distintos sectores de la ciudad.</p></div>
+          <button id="clearFilters" class="shrink-0 text-xs font-bold text-cerc-blue hover:underline">Limpiar filtros</button>
+        </div>
+
+        <div id="professionalGrid" class="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Tarjeta profesional 1 -->
+          <article class="professional-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" data-specialty="Plomería" data-neighborhood="Quirinal">
+            <div class="relative h-36 bg-gradient-to-br from-sky-100 to-sky-200 dark:from-slate-800 dark:to-sky-950"><div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-700 dark:bg-slate-900 dark:text-slate-200">Disponible hoy</div><div class="absolute -bottom-8 left-5 grid h-20 w-20 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-sky-100 text-4xl dark:border-slate-900">👨🏽‍🔧</div></div>
+            <div class="p-5 pt-11"><div class="flex items-start justify-between gap-3"><div><h3 class="font-heading text-lg font-extrabold">Andrés Ramírez</h3><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Plomero profesional</p></div><span class="shrink-0 text-sm font-bold text-amber-600">★ 4.9 <span class="font-normal text-slate-400">(86)</span></span></div>
+              <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-lg bg-green-50 px-2.5 py-1.5 text-[11px] font-bold text-green-800 dark:bg-green-950 dark:text-green-300">✓ Certificación SENA Huila</span><span class="rounded-lg bg-sky-50 px-2.5 py-1.5 text-[11px] font-bold text-sky-800 dark:bg-sky-950 dark:text-sky-300">✓ Antecedentes verificados*</span></div>
+              <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800"><div><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p class="text-lg font-extrabold">$45.000 <span class="text-xs font-semibold">COP</span></p></div><p class="text-xs font-medium text-slate-500">📍 Quirinal · 1,8 km</p></div>
+              <div class="mt-4 flex gap-2"><button class="profile-btn flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" data-name="Andrés Ramírez" data-job="Plomero profesional" data-area="Quirinal" data-distance="1,8 km" data-rating="4.9" data-price="$45.000 COP" data-bio="Experiencia en reparación de fugas, grifería, sanitarios e instalación de tuberías. Perfil demostrativo; confirma las credenciales antes de contratar.">Ver perfil</button><button class="request-btn flex-1 rounded-xl bg-cerc-orange px-3 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-500" data-service="Plomería">Solicitar</button></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta profesional 2 -->
+          <article class="professional-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" data-specialty="Electricidad" data-neighborhood="Ipanema">
+            <div class="relative h-36 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-slate-800 dark:to-amber-950"><div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-700 dark:bg-slate-900 dark:text-slate-200">Responde rápido</div><div class="absolute -bottom-8 left-5 grid h-20 w-20 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-amber-100 text-4xl dark:border-slate-900">🧑🏽‍🔧</div></div>
+            <div class="p-5 pt-11"><div class="flex items-start justify-between gap-3"><div><h3 class="font-heading text-lg font-extrabold">Camilo Torres</h3><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Técnico electricista</p></div><span class="shrink-0 text-sm font-bold text-amber-600">★ 4.8 <span class="font-normal text-slate-400">(64)</span></span></div>
+              <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-lg bg-green-50 px-2.5 py-1.5 text-[11px] font-bold text-green-800 dark:bg-green-950 dark:text-green-300">✓ Formación técnica*</span><span class="rounded-lg bg-sky-50 px-2.5 py-1.5 text-[11px] font-bold text-sky-800 dark:bg-sky-950 dark:text-sky-300">✓ Identidad revisada*</span></div>
+              <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800"><div><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p class="text-lg font-extrabold">$50.000 <span class="text-xs font-semibold">COP</span></p></div><p class="text-xs font-medium text-slate-500">📍 Ipanema · 2,4 km</p></div>
+              <div class="mt-4 flex gap-2"><button class="profile-btn flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" data-name="Camilo Torres" data-job="Técnico electricista" data-area="Ipanema" data-distance="2,4 km" data-rating="4.8" data-price="$50.000 COP" data-bio="Apoyo en revisión de tomas, iluminación, interruptores y fallas eléctricas domésticas. Perfil demostrativo; confirma las credenciales antes de contratar.">Ver perfil</button><button class="request-btn flex-1 rounded-xl bg-cerc-orange px-3 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-500" data-service="Electricidad">Solicitar</button></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta profesional 3 -->
+          <article class="professional-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" data-specialty="Limpieza" data-neighborhood="Cándido">
+            <div class="relative h-36 bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-slate-800 dark:to-emerald-950"><div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-700 dark:bg-slate-900 dark:text-slate-200">Agenda flexible</div><div class="absolute -bottom-8 left-5 grid h-20 w-20 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-emerald-100 text-4xl dark:border-slate-900">👩🏽‍🧹</div></div>
+            <div class="p-5 pt-11"><div class="flex items-start justify-between gap-3"><div><h3 class="font-heading text-lg font-extrabold">Laura Méndez</h3><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Servicios de limpieza</p></div><span class="shrink-0 text-sm font-bold text-amber-600">★ 5.0 <span class="font-normal text-slate-400">(42)</span></span></div>
+              <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-lg bg-green-50 px-2.5 py-1.5 text-[11px] font-bold text-green-800 dark:bg-green-950 dark:text-green-300">✓ Referencias revisadas*</span><span class="rounded-lg bg-sky-50 px-2.5 py-1.5 text-[11px] font-bold text-sky-800 dark:bg-sky-950 dark:text-sky-300">✓ Perfil validado*</span></div>
+              <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800"><div><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p class="text-lg font-extrabold">$40.000 <span class="text-xs font-semibold">COP</span></p></div><p class="text-xs font-medium text-slate-500">📍 Cándido · 3,1 km</p></div>
+              <div class="mt-4 flex gap-2"><button class="profile-btn flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" data-name="Laura Méndez" data-job="Servicios de limpieza" data-area="Cándido" data-distance="3,1 km" data-rating="5.0" data-price="$40.000 COP" data-bio="Servicio de limpieza general para apartamentos, casas y espacios de trabajo. Perfil demostrativo; confirma referencias y alcance del servicio antes de contratar.">Ver perfil</button><button class="request-btn flex-1 rounded-xl bg-cerc-orange px-3 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-500" data-service="Limpieza">Solicitar</button></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta profesional 4 -->
+          <article class="professional-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" data-specialty="Pintura" data-neighborhood="Las Granjas">
+            <div class="relative h-36 bg-gradient-to-br from-rose-100 to-orange-100 dark:from-slate-800 dark:to-rose-950"><div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-700 dark:bg-slate-900 dark:text-slate-200">Cupos esta semana</div><div class="absolute -bottom-8 left-5 grid h-20 w-20 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-rose-100 text-4xl dark:border-slate-900">👨🏽‍🎨</div></div>
+            <div class="p-5 pt-11"><div class="flex items-start justify-between gap-3"><div><h3 class="font-heading text-lg font-extrabold">Julián Castro</h3><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Pintor residencial</p></div><span class="shrink-0 text-sm font-bold text-amber-600">★ 4.7 <span class="font-normal text-slate-400">(38)</span></span></div>
+              <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-lg bg-green-50 px-2.5 py-1.5 text-[11px] font-bold text-green-800 dark:bg-green-950 dark:text-green-300">✓ Referencias revisadas*</span><span class="rounded-lg bg-sky-50 px-2.5 py-1.5 text-[11px] font-bold text-sky-800 dark:bg-sky-950 dark:text-sky-300">✓ Perfil validado*</span></div>
+              <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800"><div><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p class="text-lg font-extrabold">$45.000 <span class="text-xs font-semibold">COP</span></p></div><p class="text-xs font-medium text-slate-500">📍 Las Granjas · 3,8 km</p></div>
+              <div class="mt-4 flex gap-2"><button class="profile-btn flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" data-name="Julián Castro" data-job="Pintor residencial" data-area="Las Granjas" data-distance="3,8 km" data-rating="4.7" data-price="$45.000 COP" data-bio="Pintura de interiores, retoques y preparación básica de superficies. Perfil demostrativo; confirma las credenciales antes de contratar.">Ver perfil</button><button class="request-btn flex-1 rounded-xl bg-cerc-orange px-3 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-500" data-service="Pintura">Solicitar</button></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta profesional 5 -->
+          <article class="professional-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" data-specialty="Jardinería" data-neighborhood="Álamos Norte">
+            <div class="relative h-36 bg-gradient-to-br from-lime-100 to-emerald-100 dark:from-slate-800 dark:to-lime-950"><div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-700 dark:bg-slate-900 dark:text-slate-200">Atención a domicilio</div><div class="absolute -bottom-8 left-5 grid h-20 w-20 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-lime-100 text-4xl dark:border-slate-900">🧑🏽‍🌾</div></div>
+            <div class="p-5 pt-11"><div class="flex items-start justify-between gap-3"><div><h3 class="font-heading text-lg font-extrabold">Diego Silva</h3><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Jardinería y mantenimiento</p></div><span class="shrink-0 text-sm font-bold text-amber-600">★ 4.8 <span class="font-normal text-slate-400">(51)</span></span></div>
+              <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-lg bg-green-50 px-2.5 py-1.5 text-[11px] font-bold text-green-800 dark:bg-green-950 dark:text-green-300">✓ Referencias revisadas*</span><span class="rounded-lg bg-sky-50 px-2.5 py-1.5 text-[11px] font-bold text-sky-800 dark:bg-sky-950 dark:text-sky-300">✓ Perfil validado*</span></div>
+              <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800"><div><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p class="text-lg font-extrabold">$35.000 <span class="text-xs font-semibold">COP</span></p></div><p class="text-xs font-medium text-slate-500">📍 Álamos Norte · 4,2 km</p></div>
+              <div class="mt-4 flex gap-2"><button class="profile-btn flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" data-name="Diego Silva" data-job="Jardinería y mantenimiento" data-area="Álamos Norte" data-distance="4,2 km" data-rating="4.8" data-price="$35.000 COP" data-bio="Mantenimiento de jardines, poda sencilla y cuidado de plantas. Perfil demostrativo; confirma las credenciales antes de contratar.">Ver perfil</button><button class="request-btn flex-1 rounded-xl bg-cerc-orange px-3 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-500" data-service="Jardinería">Solicitar</button></div>
+            </div>
+          </article>
+
+          <!-- Tarjeta profesional 6 -->
+          <article class="professional-card overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900" data-specialty="Cerrajería" data-neighborhood="Quirinal">
+            <div class="relative h-36 bg-gradient-to-br from-violet-100 to-sky-100 dark:from-slate-800 dark:to-violet-950"><div class="absolute right-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-bold text-slate-700 dark:bg-slate-900 dark:text-slate-200">Servicio a domicilio</div><div class="absolute -bottom-8 left-5 grid h-20 w-20 place-items-center overflow-hidden rounded-2xl border-4 border-white bg-violet-100 text-4xl dark:border-slate-900">🧑🏽‍🔑</div></div>
+            <div class="p-5 pt-11"><div class="flex items-start justify-between gap-3"><div><h3 class="font-heading text-lg font-extrabold">Felipe Rojas</h3><p class="mt-0.5 text-sm text-slate-500 dark:text-slate-400">Cerrajero</p></div><span class="shrink-0 text-sm font-bold text-amber-600">★ 4.9 <span class="font-normal text-slate-400">(73)</span></span></div>
+              <div class="mt-4 flex flex-wrap gap-2"><span class="rounded-lg bg-green-50 px-2.5 py-1.5 text-[11px] font-bold text-green-800 dark:bg-green-950 dark:text-green-300">✓ Referencias revisadas*</span><span class="rounded-lg bg-sky-50 px-2.5 py-1.5 text-[11px] font-bold text-sky-800 dark:bg-sky-950 dark:text-sky-300">✓ Perfil validado*</span></div>
+              <div class="mt-4 flex items-center justify-between border-t border-slate-100 pt-4 dark:border-slate-800"><div><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p class="text-lg font-extrabold">$45.000 <span class="text-xs font-semibold">COP</span></p></div><p class="text-xs font-medium text-slate-500">📍 Quirinal · 1,2 km</p></div>
+              <div class="mt-4 flex gap-2"><button class="profile-btn flex-1 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-bold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800" data-name="Felipe Rojas" data-job="Cerrajero" data-area="Quirinal" data-distance="1,2 km" data-rating="4.9" data-price="$45.000 COP" data-bio="Apoyo en revisión de cerraduras y cambios de cilindro. Perfil demostrativo; confirma la identidad y las credenciales antes de contratar.">Ver perfil</button><button class="request-btn flex-1 rounded-xl bg-cerc-orange px-3 py-2.5 text-sm font-extrabold text-slate-950 hover:bg-amber-500" data-service="Cerrajería">Solicitar</button></div>
+            </div>
+          </article>
+        </div>
+        <p id="emptyResults" class="mt-8 hidden rounded-2xl border border-dashed border-slate-300 p-8 text-center text-sm text-slate-600 dark:border-slate-700 dark:text-slate-300">No encontramos profesionales con esos filtros. Prueba otra especialidad o barrio.</p>
+        <p class="mt-5 text-xs leading-5 text-slate-500 dark:text-slate-400">*Contenido demostrativo para el prototipo. Los nombres, distancias, tarifas, calificaciones y distintivos no representan verificaciones reales ni disponibilidad confirmada.</p>
+      </div>
+    </section>
+
+    <!-- Selector interactivo de barrios -->
+    <section id="barrios" class="border-y border-slate-200 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/60 sm:py-16">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[.85fr_1.15fr] lg:px-8">
+        <div><p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">Tu zona, tu comunidad</p><h2 class="mt-2 font-heading text-3xl font-extrabold">Explora por barrio</h2><p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">Selecciona un sector para filtrar profesionales del ejemplo. Las distancias son ilustrativas y no se calculan con GPS.</p>
+          <div class="mt-6 flex flex-wrap gap-2" role="group" aria-label="Seleccionar barrio de Neiva">
+            <button class="area-btn rounded-full border border-sky-200 bg-sky-50 px-4 py-2.5 text-sm font-bold text-cerc-blue-dark hover:border-cerc-blue dark:border-sky-900 dark:bg-sky-950 dark:text-sky-300" data-area="">Toda Neiva</button>
+            <button class="area-btn rounded-full border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:border-cerc-blue dark:border-slate-700" data-area="Quirinal">Quirinal</button>
+            <button class="area-btn rounded-full border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:border-cerc-blue dark:border-slate-700" data-area="Ipanema">Ipanema</button>
+            <button class="area-btn rounded-full border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:border-cerc-blue dark:border-slate-700" data-area="Cándido">Cándido</button>
+            <button class="area-btn rounded-full border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:border-cerc-blue dark:border-slate-700" data-area="Las Granjas">Las Granjas</button>
+            <button class="area-btn rounded-full border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:border-cerc-blue dark:border-slate-700" data-area="Álamos Norte">Álamos Norte</button>
+          </div>
+        </div>
+        <div class="rounded-3xl bg-slate-50 p-5 sm:p-7 dark:bg-slate-900">
+          <div class="flex items-start gap-4">
+            <span class="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-cerc-blue text-2xl text-white" aria-hidden="true">📍</span>
+            <div><p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">Zona activa</p><h3 id="areaTitle" class="mt-1 font-heading text-2xl font-extrabold">Toda Neiva</h3><p id="areaCopy" class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Consulta opciones en distintos barrios de la ciudad y elige el profesional que mejor se adapte a tu necesidad.</p></div>
+          </div>
+          <div class="mt-6 grid grid-cols-2 gap-3">
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-950"><p class="text-xs text-slate-500 dark:text-slate-400">Especialidades de ejemplo</p><p id="areaSpecialties" class="mt-1 font-bold">6 disponibles</p></div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-4 dark:border-slate-700 dark:bg-slate-950"><p class="text-xs text-slate-500 dark:text-slate-400">Perfiles mostrados</p><p id="areaCount" class="mt-1 font-bold">6 profesionales</p></div>
+          </div>
+          <button id="showAreaPros" class="mt-5 w-full rounded-xl bg-cerc-blue px-4 py-3 text-sm font-bold text-white hover:bg-cerc-blue-dark">Ver profesionales de esta zona</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de solicitud de servicio -->
+    <section id="solicitud" class="py-14 sm:py-16">
+      <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[.8fr_1.2fr] lg:px-8">
+        <div class="lg:pt-5">
+          <p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">En pocos pasos</p>
+          <h2 class="mt-2 font-heading text-3xl font-extrabold sm:text-4xl">Cuéntanos qué necesitas</h2>
+          <p class="mt-4 text-sm leading-7 text-slate-600 dark:text-slate-300">Describe tu solicitud y elige cuándo te gustaría recibir el servicio. Este formulario funciona como demostración local: no envía datos a un servidor ni crea una reserva real.</p>
+          <div class="mt-7 space-y-4">
+            <div class="flex gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sky-100 font-extrabold text-cerc-blue-dark dark:bg-sky-950 dark:text-sky-300">1</span><div><p class="font-bold">Describe la labor</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Cuéntanos cuál es el problema.</p></div></div>
+            <div class="flex gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sky-100 font-extrabold text-cerc-blue-dark dark:bg-sky-950 dark:text-sky-300">2</span><div><p class="font-bold">Elige fecha y ubicación</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Indica el barrio y la dirección.</p></div></div>
+            <div class="flex gap-3"><span class="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-sky-100 font-extrabold text-cerc-blue-dark dark:bg-sky-950 dark:text-sky-300">3</span><div><p class="font-bold">Revisa la confirmación</p><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Podrás ver el resumen de tu solicitud.</p></div></div>
+          </div>
+        </div>
+
+        <form id="requestForm" class="rounded-3xl border border-slate-200 bg-white p-5 shadow-xl shadow-slate-900/5 sm:p-8 dark:border-slate-800 dark:bg-slate-900" novalidate>
+          <div class="mb-6 flex items-center justify-between gap-3"><div><h3 class="font-heading text-xl font-extrabold">Nueva solicitud</h3><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Los campos marcados con * son obligatorios.</p></div><span class="rounded-xl bg-sky-50 px-3 py-2 text-xs font-bold text-cerc-blue dark:bg-sky-950 dark:text-sky-300">Neiva, Huila</span></div>
+          <div class="grid gap-5 sm:grid-cols-2">
+            <div><label for="serviceType" class="mb-2 block text-sm font-bold">Tipo de labor *</label><select id="serviceType" name="serviceType" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><option value="">Selecciona una especialidad</option><option>Plomería</option><option>Electricidad</option><option>Limpieza</option><option>Pintura</option><option>Jardinería</option><option>Cerrajería</option><option>Otro servicio</option></select><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="serviceTypeError"></p></div>
+            <div><label for="requestNeighborhood" class="mb-2 block text-sm font-bold">Barrio *</label><select id="requestNeighborhood" name="neighborhood" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><option value="">Selecciona tu barrio</option><option>Quirinal</option><option>Ipanema</option><option>Cándido</option><option>Las Granjas</option><option>Álamos Norte</option><option>Otro barrio de Neiva</option></select><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="requestNeighborhoodError"></p></div>
+            <div class="sm:col-span-2"><label for="description" class="mb-2 block text-sm font-bold">Descripción del problema *</label><textarea id="description" name="description" rows="4" minlength="10" maxlength="600" required placeholder="Ej. Hay una fuga debajo del lavaplatos y necesito revisar la tubería..." class="w-full resize-y rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none placeholder:text-slate-400 focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"></textarea><div class="mt-1 flex justify-between gap-3"><p class="field-error hidden text-xs font-semibold text-cerc-red" id="descriptionError"></p><span id="charCount" class="ml-auto text-xs text-slate-500">0/600</span></div></div>
+            <div><label for="requestDate" class="mb-2 block text-sm font-bold">Fecha preferida *</label><input id="requestDate" name="date" type="date" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="requestDateError"></p></div>
+            <div><label for="requestTime" class="mb-2 block text-sm font-bold">Hora preferida *</label><select id="requestTime" name="time" required class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><option value="">Selecciona una hora</option><option value="08:00">8:00 a. m.</option><option value="10:00">10:00 a. m.</option><option value="12:00">12:00 m.</option><option value="14:00">2:00 p. m.</option><option value="16:00">4:00 p. m.</option><option value="18:00">6:00 p. m.</option></select><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="requestTimeError"></p></div>
+            <div class="sm:col-span-2"><label for="address" class="mb-2 block text-sm font-bold">Dirección en Neiva *</label><input id="address" name="address" type="text" required minlength="8" maxlength="120" autocomplete="street-address" placeholder="Ej. Calle 12 # 8-35, apartamento 201" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none placeholder:text-slate-400 focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="addressError"></p></div>
+            <div><label for="customerName" class="mb-2 block text-sm font-bold">Tu nombre *</label><input id="customerName" name="customerName" type="text" required minlength="2" maxlength="80" autocomplete="name" placeholder="Nombre y apellido" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none placeholder:text-slate-400 focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="customerNameError"></p></div>
+            <div><label for="customerPhone" class="mb-2 block text-sm font-bold">Celular de contacto *</label><input id="customerPhone" name="phone" type="tel" required inputmode="numeric" autocomplete="tel" pattern="3[0-9]{9}" maxlength="10" placeholder="Ej. 3001234567" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none placeholder:text-slate-400 focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"><p class="field-error mt-1 hidden text-xs font-semibold text-cerc-red" id="customerPhoneError"></p></div>
+          </div>
+          <div id="formSummary" class="mt-5 hidden rounded-xl border border-green-200 bg-green-50 p-4 text-sm text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-200" role="status" aria-live="polite"></div>
+          <button type="submit" class="mt-6 w-full rounded-xl bg-cerc-orange px-5 py-3.5 text-sm font-extrabold text-slate-950 shadow-sm transition hover:bg-amber-500">Enviar solicitud de ejemplo <span aria-hidden="true">→</span></button>
+          <p class="mt-3 text-center text-xs leading-5 text-slate-500 dark:text-slate-400">Al continuar, aceptas que tus datos se usarían para gestionar el servicio en una versión real.</p>
+        </form>
+      </div>
+    </section>
+
+
+
+    <!-- Perfil , solicitudes y calificación demostrativa -->
+    <section id="perfil" class="border-y border-slate-200 bg-white py-14 dark:border-slate-800 dark:bg-slate-900/60 sm:py-16">
+      <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div class="rounded-3xl bg-gradient-to-br from-cerc-blue to-cerc-blue-dark p-6 text-white sm:p-8">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-widest text-sky-100">Tu espacio personal</p>
+              <h2 class="mt-2 font-heading text-2xl font-extrabold">Mi perfil</h2>
+            </div>
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-white/15 text-2xl" aria-hidden="true">👤</span></div>
+          <div class="mt-7 flex items-center gap-4"><div class="grid h-16 w-16 place-items-center rounded-2xl bg-white text-2xl text-cerc-blue">OB</div>
+          <div>
+            <p class="text-lg font-extrabold">Oscar Botero</p><p class="text-sm text-sky-100">Usuario de CercApp · Neiva</p>
+            <span class="mt-2 inline-flex rounded-full bg-green-300/20 px-2.5 py-1 text-xs font-bold text-green-50">Cuenta demostrativa</span></div></div>
+          <div class="mt-7 grid grid-cols-2 gap-3"><div class="rounded-2xl bg-white/10 p-4"><p class="text-xs text-sky-100">Solicitudes de ejemplo</p><p class="mt-1 text-2xl font-extrabold" id="requestCount">0</p></div>
+          <div class="rounded-2xl bg-white/10 p-4"><p class="text-xs text-sky-100">Estado</p><p class="mt-1 text-lg font-extrabold">Explorando</p></div></div>
+          <a href="#solicitud" class="mt-6 inline-flex rounded-xl bg-white px-4 py-3 text-sm font-extrabold text-cerc-blue hover:bg-sky-50">Crear una solicitud</a>
+        </div>
+
+
+
+
+
+        <div class="rounded-3xl border border-slate-200 p-6 sm:p-8 dark:border-slate-800">
+          <p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">Tu opinión importa</p><h2 class="mt-2 font-heading text-2xl font-extrabold">Califica tu experiencia</h2><p class="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-300">Prueba las estrellas interactivas. La calificación no se publica ni se guarda en un servidor.</p>
+          <form id="ratingForm" class="mt-6">
+            <label for="ratingProfessional" class="mb-2 block text-sm font-bold">Profesional que te atendió</label>
+            <select id="ratingProfessional" class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm dark:border-slate-700 dark:bg-slate-950"><option>Andrés Ramírez · Plomería</option><option>Camilo Torres · Electricidad</option><option>Laura Méndez · Limpieza</option><option>Julián Castro · Pintura</option><option>Diego Silva · Jardinería</option><option>Felipe Rojas · Cerrajería</option></select>
+            <fieldset class="mt-5"><legend class="text-sm font-bold">¿Cómo fue el servicio? *</legend><div id="starRating" class="mt-3 flex gap-2" role="group" aria-label="Puntuación de 1 a 5 estrellas"><button type="button" class="star-button text-4xl" data-rating="1" aria-label="1 estrella" aria-pressed="false">★</button><button type="button" class="star-button text-4xl" data-rating="2" aria-label="2 estrellas" aria-pressed="false">★</button><button type="button" class="star-button text-4xl" data-rating="3" aria-label="3 estrellas" aria-pressed="false">★</button><button type="button" class="star-button text-4xl" data-rating="4" aria-label="4 estrellas" aria-pressed="false">★</button><button type="button" class="star-button text-4xl" data-rating="5" aria-label="5 estrellas" aria-pressed="false">★</button></div><p id="ratingLabel" class="mt-2 text-sm text-slate-500 dark:text-slate-400" aria-live="polite">Selecciona una puntuación.</p></fieldset>
+            <label for="ratingComment" class="mb-2 mt-5 block text-sm font-bold">Comentario (opcional)</label><textarea id="ratingComment" rows="3" maxlength="300" placeholder="Cuéntanos cómo te fue..." class="w-full rounded-xl border border-slate-300 bg-white px-3 py-3 text-sm outline-none focus:border-cerc-blue dark:border-slate-700 dark:bg-slate-950"></textarea>
+            <button type="submit" class="mt-4 w-full rounded-xl bg-cerc-blue px-4 py-3 font-bold text-white hover:bg-cerc-blue-dark">Enviar calificación de prueba</button>
+            <p id="ratingMessage" class="mt-3 hidden text-sm font-semibold text-green-700 dark:text-green-300" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- Pie de página -->
+    <footer class="bg-slate-950 py-9 text-slate-300">
+      <div class="mx-auto flex max-w-7xl flex-col gap-5 px-4 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+        <a href="#inicio" class="flex items-center gap-2 font-heading text-xl font-extrabold text-white">
+          <span class="grid h-9 w-9 place-items-center rounded-xl bg-cerc-blue" aria-hidden="true">
+            <img src="img/Logo Blanco.png" alt="Logo de CercApp" class="h-8 w-90 object-contain">
+          </span>CercApp</a>
+        <p class="text-sm">Los servicios que necesitas, más cerca. <span class="text-slate-500">Hecho con cariño en Neiva, Huila.</span></p>
+        <p class="text-xs text-slate-500">© <span id="currentYear"></span> CercApp · Prototipo demostrativo | BoteroSystem |</p>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Modal accesible de perfil profesional -->
+  <div id="profileModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/60 p-4" role="dialog" aria-modal="true" aria-labelledby="modalName" aria-describedby="modalBio">
+    <div class="w-full max-w-md rounded-3xl bg-white p-6 shadow-2xl dark:bg-slate-900 sm:p-8">
+      <div class="flex items-start justify-between gap-4"><div><p class="text-xs font-bold uppercase tracking-widest text-cerc-blue">Perfil profesional</p><h2 id="modalName" class="mt-2 font-heading text-2xl font-extrabold">Profesional</h2><p id="modalJob" class="mt-1 text-sm text-slate-500 dark:text-slate-400"></p></div><button id="closeModal" type="button" class="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-slate-200 text-xl hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800" aria-label="Cerrar ventana de perfil">×</button></div>
+      <div class="mt-5 grid grid-cols-2 gap-3"><div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800"><p class="text-xs text-slate-500 dark:text-slate-400">Calificación</p><p id="modalRating" class="mt-1 font-extrabold text-amber-600"></p></div><div class="rounded-xl bg-slate-50 p-3 dark:bg-slate-800"><p class="text-xs text-slate-500 dark:text-slate-400">Visita desde</p><p id="modalPrice" class="mt-1 font-extrabold"></p></div><div class="col-span-2 rounded-xl bg-slate-50 p-3 dark:bg-slate-800"><p class="text-xs text-slate-500 dark:text-slate-400">Zona y distancia aproximada</p><p id="modalArea" class="mt-1 font-bold"></p></div></div>
+      <p id="modalBio" class="mt-5 text-sm leading-6 text-slate-600 dark:text-slate-300"></p>
+      <p class="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs leading-5 text-amber-900 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-200">Este perfil es ilustrativo. Confirma identidad, certificaciones, precio final y disponibilidad antes de contratar.</p>
+      <button id="modalRequest" type="button" class="mt-5 w-full rounded-xl bg-cerc-orange px-4 py-3 font-extrabold text-slate-950 hover:bg-amber-500">Solicitar este servicio</button>
+    </div>
+  </div>
+
+  <!-- Toast de confirmación -->
+  <div id="toast" class="fixed bottom-4 left-4 right-4 z-[60] hidden max-w-md rounded-2xl bg-green-700 p-4 text-white shadow-2xl sm:left-auto sm:right-6" role="status" aria-live="polite">
+    <div class="flex items-start gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-white/20 font-extrabold" aria-hidden="true">✓</span>
+      <div class="flex-1"><p id="toastTitle" class="font-extrabold">¡Listo!</p><p id="toastMessage" class="mt-1 text-sm text-green-50">La acción se completó.</p></div>
+      <button id="closeToast" class="text-xl leading-none text-white/90 hover:text-white" aria-label="Cerrar aviso">
+        ×
+      </button></div>
+  </div>
+
+  <!-- JavaScript puro: navegación, filtros, formulario, modal, tema y calificación -->
+  <script src="JS/app.js"></script>
+  
+</body>
+</html>
